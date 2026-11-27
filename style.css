@@ -1,0 +1,76 @@
+:root {
+  color-scheme: light;
+  --ink: #192d38;
+  --muted: #4c626c;
+  --accent: #006254;
+  --line: #d5e0de;
+  --surface: #f4f8f7;
+  --serif: "Iowan Old Style", Georgia, serif;
+  font-family: "Avenir Next", Avenir, system-ui, sans-serif;
+  color: var(--ink);
+  background: #fcfdfc;
+  line-height: 1.6;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: var(--accent); text-underline-offset: .22em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.wrap { width: min(100% - 3rem, 68rem); margin-inline: auto; }
+.skip { position: absolute; top: .75rem; left: .75rem; transform: translateY(-200%); background: white; padding: .5rem; }
+.skip:focus { transform: none; }
+.top, .footer { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1.1rem; }
+.top { border-bottom: 1px solid var(--line); }
+.brand { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--ink); text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: .45rem 1.25rem; }
+nav a { color: var(--muted); font-size: .94rem; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+.hero { min-height: 25rem; display: grid; grid-template-columns: 1.35fr 1fr; gap: 3rem; align-items: center; padding-block: 4.3rem; }
+.role { color: var(--accent); font-size: .9rem; font-weight: 700; margin: 0 0 .45rem; }
+h1,h2,h3,p { margin-block: 0; }
+h1,h2 { font-family: var(--serif); line-height: 1.08; }
+h1 { font-size: clamp(3.1rem, 7vw, 5.6rem); font-weight: 500; letter-spacing: -.07em; }
+h2 { font-size: clamp(2rem, 4vw, 2.85rem); font-weight: 500; letter-spacing: -.045em; }
+h3 { font-size: 1.12rem; line-height: 1.4; }
+.intro { max-width: 37rem; margin-block: 1.15rem 1.55rem; color: var(--muted); font-size: 1.06rem; }
+.intro p + p { margin-top: .75rem; }
+.links { display: flex; flex-wrap: wrap; gap: .45rem .55rem; }
+.links a { display: inline-block; border: 1px solid #b7cec8; border-radius: .4rem; padding: .42rem .72rem; font-weight: 650; text-decoration: none; }
+.links a:hover { background: #e6f2ee; }
+.links .primary { color: white; background: #075a50; border-color: #075a50; }
+.links .primary:hover { background: #00463e; }
+.small a { font-size: .875rem; padding: .22rem .58rem; }
+.portrait { display: block; width: min(100%, 19rem); height: auto; justify-self: end; border-radius: 1rem; border: 1px solid var(--line); }
+section { scroll-margin-top: 1rem; }
+.section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem 1.4rem; flex-wrap: wrap; border-top: 1px solid var(--line); padding-block: 1.65rem .95rem; }
+.quiet-link { font-size: .92rem; }
+.papers { list-style: none; margin: 0 0 2.9rem; padding: 0; }
+.paper { display: grid; grid-template-columns: 7.5rem 1fr; gap: .55rem 1rem; padding: 1.08rem 0; border-bottom: 1px solid var(--line); }
+.venue { color: var(--accent); font-weight: 700; font-size: .94rem; }
+.venue span { color: var(--muted); font-weight: 500; }
+.authors { color: var(--muted); margin-block: .26rem .6rem; font-size: .96rem; }
+.authors strong { color: var(--ink); }
+.note { white-space: normal; }
+.projects { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: .45rem 0 2.9rem; }
+.projects article { padding: 1.35rem; background: var(--surface); border: 1px solid var(--line); border-radius: .65rem; }
+.projects h3 + p { color: var(--muted); margin: .45rem 0 .7rem; }
+.background { margin: 0 0 2.8rem; }
+.background div { padding: .68rem 0; display: grid; grid-template-columns: 11rem 1fr; gap: .25rem 1rem; }
+dt { font-weight: 700; }
+dd { margin: 0; color: var(--muted); }
+.footer { color: var(--muted); border-top: 1px solid var(--line); font-size: .9rem; }
+@media(max-width: 46rem) {
+  .wrap { width: min(100% - 2rem, 68rem); }
+  .hero { grid-template-columns: 1fr; gap: 1.8rem; padding-block: 2.65rem; }
+  .portrait { justify-self: start; width: min(100%, 14rem); }
+}
+@media(max-width: 33rem) {
+  .top { align-items: flex-start; flex-direction: column; }
+  .paper, .projects, .background div { grid-template-columns: 1fr; }
+  .projects article { padding: 1rem; }
+}
+@media print {
+  .portrait, .top, .footer, .skip { display: none; }
+  .hero { display: block; min-height: 0; padding-block: 1.5rem; }
+  .paper, article { break-inside: avoid; }
+}
